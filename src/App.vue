@@ -1,19 +1,39 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-const text = ref('jasd')
+import { ref, onMounted } from 'vue'
 const useNew = ref(false)
 const adjusted = ref(false)
 const size = ref(2)
+
+onMounted(() => {
+  setInterval(() => {
+    useNew.value = !useNew.value
+  }, 1000)
+})
 </script>
 
 <template>
-  <input type="range" v-model="size" step="0.01" min="0.7" max="3" />
+  <div class="code">
+    <p>
+      Include this in your css
+      <span
+        @click.prevent="adjusted = !adjusted"
+        class="tag"
+        :style="{ color: adjusted ? 'hsla(160, 100%, 37%, 1)' : 'red' }"
+        >CORRECTION {{ adjusted ? 'ON' : 'OFF' }}</span
+      >
+    </p>
+    <pre>
+{
+  text-transform: uppercase;
+  font-weight: 600;
+}</pre
+    >
+  </div>
 
   <p>
-    <a href="#" @click.prevent="useNew = !useNew"> {{ useNew ? 'New' : 'Old' }} version</a>
-    <a href="#" @click.prevent="adjusted = !adjusted">
-      {{ adjusted ? 'Adjusted' : 'not adjusted' }}
-    </a>
+    <a class="mono" href="#" @click.prevent="useNew = !useNew">
+      {{ useNew ? 'New' : 'Old' }} version</a
+    >
   </p>
   <div
     class="demo"
@@ -32,6 +52,23 @@ const size = ref(2)
 </template>
 
 <style scoped>
+.tag {
+  cursor: pointer;
+  padding: 0.2em 0.5em;
+  border-radius: 0.2em;
+}
+.mono {
+  font-family: monospace;
+  text-transform: uppercase;
+}
+.code {
+  font-family: monospace;
+  background: whitesmoke;
+  padding: 1em 2em;
+}
+pre {
+  font-size: 2em;
+}
 .adjusted {
   text-transform: uppercase;
   font-weight: 600;
