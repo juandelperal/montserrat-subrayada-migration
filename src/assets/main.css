@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  font-family: 'New';
 }
 
 a,
@@ -13,4 +14,21 @@ a,
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
+}
+
+@font-face {
+  font-family: 'New';
+  src: url('@/assets/new-MontserratSubrayada[wght].ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Old';
+  font-weight: normal;
+  src: url('@/assets/old-MontserratSubrayada-Regular.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Old';
+  font-weight: bold;
+  src: url('@/assets/old-MontserratSubrayada-Bold.ttf') format('opentype');
 }
