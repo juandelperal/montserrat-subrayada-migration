@@ -7,7 +7,7 @@ const size = ref(2)
 onMounted(() => {
   setInterval(() => {
     useNew.value = !useNew.value
-  }, 1000)
+  }, 1250)
 })
 </script>
 
@@ -18,7 +18,7 @@ onMounted(() => {
       <span
         @click.prevent="adjusted = !adjusted"
         class="tag"
-        :style="{ color: adjusted ? 'hsla(160, 100%, 37%, 1)' : 'red' }"
+        :style="{ color: adjusted ? 'var(--green)' : 'var(--red)' }"
         >CORRECTION {{ adjusted ? 'ON' : 'OFF' }}</span
       >
     </p>
@@ -31,9 +31,14 @@ onMounted(() => {
   </div>
 
   <p>
-    <a class="mono" href="#" @click.prevent="useNew = !useNew">
-      {{ useNew ? 'New' : 'Old' }} version</a
+    <a
+      class="mono"
+      href="#"
+      @click.prevent="useNew = !useNew"
+      :style="{ color: useNew ? 'var(--green)' : 'var(--red)' }"
     >
+      {{ useNew ? 'Montserrat Underline' : 'Montserrat Subrayada' }}
+    </a>
   </p>
   <div
     class="demo"
@@ -44,9 +49,9 @@ onMounted(() => {
   >
     <h1>Montserrat migration</h1>
     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, magni temporibus tempore aperiam
-      aliquid commodi nostrum illo cumque odit libero omnis, aliquam beatae ab quae. Quo asperiores
-      inventore repudiandae libero?
+      Edit me. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, magni temporibus
+      tempore aperiam aliquid commodi nostrum illo cumque odit libero omnis, aliquam beatae ab quae.
+      Quo asperiores inventore repudiandae libero?
     </p>
   </div>
 </template>
